@@ -1,15 +1,4 @@
-/**
-* Template Name: Gp
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Updated: Aug 15 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -205,6 +194,12 @@ h6 {
   .header .navmenu {
     order: 3;
   }
+  .header .logo h1 {
+    font-size: 26px;
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
 }
 
 .scrolled .header {
@@ -213,6 +208,29 @@ h6 {
 @media (max-width: 720px) {
   .btn-getstarted{
     display: none;
+  }
+  .header .logo h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+  .header .logo span {
+    color: var(--accent-color);
+    font-size: 24px;
+  }
+}
+@media (max-width :480px){
+  .header .logo h1 {
+    font-size: 20px;
+    color: red;
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+  .header .logo span {
+    color: var(--accent-color);
+    font-size: 20px;
   }
 }
 
@@ -668,7 +686,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background-color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -682,14 +700,15 @@ h6 {
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
+  background-color: black;
+  color: color-mix(in srgb, var(--accent-color), transparent 10%);
 }
 
 .scroll-top.active {
   visibility: visible;
   opacity: 1;
 }
+
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -1292,6 +1311,7 @@ section,
   z-index: 3;
 }
 
+
 .testimonials .testimonials-carousel,
 .testimonials .testimonials-slider {
   overflow: hidden;
@@ -1374,6 +1394,24 @@ section,
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--default-color);
   opacity: 1;
+}
+  .testmonial-head{
+    color: #ffc451;
+    font-size: 26px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+  }
+@media (max-width:920){
+  .testmonial-head{
+    font-size: 24px;
+  }
+}
+
+@media (max-width:480px){
+  .testmonial-head{
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1882,3 +1920,139 @@ section,
   box-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Green glow when focused */
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  width: 100%;
+  top: 10%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+}
+
+.modal-content {
+  position: relative;
+  margin: auto; 
+  padding: 20px;
+  border: 1px solid #c9c9c9;
+  width: 50%; 
+  background-color: #000000; 
+  overflow: hidden; 
+}
+
+.modal-content::before {
+  content: ""; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background-image: url("/assets/img/Modal_Bg.png");
+  background-size: cover; 
+  background-position: center; 
+  opacity: 0.1; 
+  z-index: 0; 
+}
+
+
+.modal-content > * {
+  position: relative; 
+  z-index: 1; 
+}
+
+.close {
+  color: #cacaca;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.modal-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-style: italic;
+}
+
+.modal-body {
+  text-align: center;
+  height: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.modal-body h6 {
+  line-height: 32px;
+  width: 70%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) { /* For tablets */
+  .modal-content {
+    width: 90%; /* Adjust modal content width */
+  }
+  
+  .modal-body {
+    width: 90%; /* Adjust modal body width */
+  }
+  .modal-body h6 {
+    line-height: 32px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) { /* For mobile devices */
+  .modal-content {
+    width: 100%; /* Adjust modal content width */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+  
+  .modal-body {
+    width: 100%; /* Adjust modal body width */
+    height: auto; /* Allow height to adjust */
+    padding: 6px;
+  }
+  .modal-head h3{
+    font-size: 16px;
+  }
+  
+  .close {
+    font-size: 24px; /* Make close button smaller */
+  }
+  .modal-body h6 {
+    line-height: 32px;
+    width: 90%;
+    font-size: 14px;
+  }
+}
+.download-brochure {
+  position: fixed; 
+  bottom: 15px; 
+  right: 60px; 
+  background-color: color-mix(in srgb, var(--accent-color), transparent 10%); 
+  color: rgb(0, 0, 0);
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.download-brochure:hover {
+  background-color: rgb(0, 0, 0);
+}
+@media (max-width: 768px){
+  .download-brochure span{
+    display: none;
+  }
+}
