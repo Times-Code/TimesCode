@@ -1,10 +1,3 @@
-/**
-* Template Name: Gp
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Updated: Aug 15 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 (function() {
   "use strict";
@@ -186,9 +179,7 @@
     }
   });
 
-  /**
-   * Navmenu Scrollspy
-   */
+
   let navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
@@ -209,3 +200,21 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
+}
+
+// Optional: Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modals = document.getElementsByClassName('modal');
+  for (let modal of modals) {
+      if (event.target === modal) {
+          modal.style.display = "none";
+      }
+  }
+}
